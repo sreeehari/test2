@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TargetsService } from './targets.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test-proj';
+  title = 'sushma-proj';
+  policies: any[] = [];
+  constructor(private targetsService: TargetsService) { }
+
+  ngOnInit() {
+    this.targetsService.getTargetInfo().subscribe((data : any[])=>{
+        console.log(data);
+        this.policies = data;
+    })
+  }
 }

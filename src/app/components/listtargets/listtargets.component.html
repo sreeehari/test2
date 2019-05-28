@@ -1,0 +1,43 @@
+<div class="col-md-12" style="padding-top:20px;">  
+  <h2>List of Targets</h2>  
+  <div style="text-align:right;padding:10px;">
+    <button routerLink="/targets" class="btn btn-info">Add Targets</button>
+  </div>
+  <div class="table-responsive table-container">  
+    <table class="table">  
+      <thead>  
+        <tr>  
+          <th>ID</th>  
+          <th>Company Name</th>  
+          <th>Street Address</th>
+          <th>Country</th>   
+          <th>Email</th>  
+          <th>Phone</th>  
+          <th>Other Phone</th>
+          <th>Status</th>  
+          <th>Budget Invested</th>
+          <th>Gross Profit</th>    
+          <th style="width:180px;">Actions</th>  
+        </tr>  
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let target of targets">  
+          <td>{{target.id}}</td>  
+          <td>{{target.companyName}}</td>
+          <td>{{target.streetAddress}}</td>
+          <td>{{target.country}}</td>
+          <td>{{target.email}}</td>   
+          <td>{{target.phone1}}</td> 
+          <td>{{target.phone2}}</td>
+          <td>{{target.status}}</td>  
+          <td>${{target.budgetInv}}</td> 
+          <td>${{target.grossProfit}}</td> 
+          <td>  
+            <button (click)="deleteTarget(target.id)" class="btn btn-info"> Delete</button>  
+            <button routerLink="/targets/{{target.id}}" style="margin-left: 20px;" class="btn btn-info"> Edit</button>  
+          </td>  
+        </tr>  
+      </tbody>  
+    </table>  
+  </div>  
+</div>  
